@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 
   // Rectify nodelet, image_color -> image_rect_color
   // NOTE: Explicitly resolve any global remappings here, so they don't get hidden.
-  remappings["image_mono"] = ros::names::resolve("image");
+  remappings["image_mono"] = ros::names::resolve("image_test");
   remappings["image_rect"] = ros::names::resolve("image_rect_color");
   std::string rectify_color_name = ros::this_node::getName() + "_rectify_color";
   if (shared_params.valid())
