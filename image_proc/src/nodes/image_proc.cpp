@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 
   // Rectify nodelet, image_color -> image_rect_color
   // NOTE: Explicitly resolve any global remappings here, so they don't get hidden.
-  remappings["image_mono"] = ros::names::resolve("image_color");
+  remappings["image_mono"] = ros::names::resolve("image");
   remappings["image_rect"] = ros::names::resolve("image_rect_color");
   std::string rectify_color_name = ros::this_node::getName() + "_rectify_color";
   if (shared_params.valid())
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
   // Check for only the original camera topics
   ros::V_string topics;
-  topics.push_back(ros::names::resolve("image"));
+  topics.push_back(ros::names::resolve("image/compressed"));
   topics.push_back(ros::names::resolve("camera_info"));
   image_proc::AdvertisementChecker check_inputs(ros::NodeHandle(), ros::this_node::getName());
   check_inputs.start(topics, 60.0);
